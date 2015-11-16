@@ -1,0 +1,311 @@
+******************************************************************************
+               TMS320C6x Linker Unix v8.0.3                    
+******************************************************************************
+>> Linked Wed Nov 11 10:39:58 2015
+
+OUTPUT FILE NAME:   <dsp_deeplearn_sysbios_core3.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00809840
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  L2SRAM                00800000   00080000  0000f38e  00070c72  RW X
+  MSMCSRAM              0c000000   00400000  00000000  00400000  RW X
+  DDR3                  80000000   20000000  00000000  20000000  RWIX
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00800000    00800000    0000821c   00000000    rw-
+  00800000    00800000    00005be2   00000000    rw- .local_ram.1
+  00805be4    00805be4    00000004   00000000    rw- .fardata.1
+  00805be8    00805be8    00000620   00000000    rw- .local_ram.2
+  00806208    00806208    00002000   00000000    rw- .stack
+  00808208    00808208    00000014   00000000    rw- .fardata.2
+00808220    00808220    00001980   00001980    r-x
+  00808220    00808220    00001980   00001980    r-x .text
+00809ba0    00809ba0    00000210   00000200    rw-
+  00809ba0    00809ba0    00000200   00000200    rw- .args
+  00809da0    00809da0    00000004   00000000    rw- .bss
+  00809da4    00809da4    0000000c   00000000    rw- .neardata
+00809db0    00809db0    000055e4   000055e4    r--
+  00809db0    00809db0    000055e4   000055e4    r-- .cinit
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.stack     0    00806208    00002000     UNINITIALIZED
+                  00806208    00000008     boot.ae66 : boot.oe66 (.stack)
+                  00806210    00001ff8     --HOLE--
+
+.bss       0    00809da0    00000004     UNINITIALIZED
+                  00809da0    00000004     (.common:core_id)
+
+.neardata 
+*          0    00809da4    0000000c     UNINITIALIZED
+                  00809da4    0000000c     deep_learning.obj (.neardata)
+
+.rodata    0    00809db0    00000000     UNINITIALIZED
+
+.cinit     0    00809db0    000055e4     
+                  00809db0    000053b4     (.cinit..local_ram.1.load) [load image, compression = rle]
+                  0080f164    000001b5     (.cinit..local_ram.2.load) [load image, compression = rle]
+                  0080f319    00000003     --HOLE-- [fill = 0]
+                  0080f31c    00000015     (.cinit..fardata.2.load) [load image, compression = rle]
+                  0080f331    00000003     --HOLE-- [fill = 0]
+                  0080f334    0000000d     (.cinit..neardata.load) [load image, compression = rle]
+                  0080f341    00000003     --HOLE-- [fill = 0]
+                  0080f344    0000000c     (__TI_handler_table)
+                  0080f350    0000000a     (.cinit..fardata.1.load) [load image, compression = rle]
+                  0080f35a    00000002     --HOLE-- [fill = 0]
+                  0080f35c    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  0080f364    00000030     (__TI_cinit_table)
+
+.init_array 
+*          0    00800000    00000000     UNINITIALIZED
+
+.args      0    00809ba0    00000200     
+                  00809ba0    00000200     --HOLE-- [fill = 0]
+
+xdc.meta   0    00800000    00000100     COPY SECTION
+                  00800000    00000100     app_pe66.oe66 (xdc.meta)
+
+.local_ram.1 
+*          0    00800000    00005be2     UNINITIALIZED
+                  00800000    00005be2     deep_learning.obj (.local_ram)
+
+.fardata.1 
+*          0    00805be4    00000004     UNINITIALIZED
+                  00805be4    00000004     rts6600_elf.lib : _lock.obj (.fardata:_lock)
+
+.local_ram.2 
+*          0    00805be8    00000620     UNINITIALIZED
+                  00805be8    00000620     main.obj (.local_ram)
+
+.fardata.2 
+*          0    00808208    00000014     UNINITIALIZED
+                  00808208    0000000c     rts6600_elf.lib : exit.obj (.fardata)
+                  00808214    00000004                     : _lock.obj (.fardata:_unlock)
+                  00808218    00000004                     : rand.obj (.fardata)
+
+.text      0    00808220    00001980     
+                  00808220    00000680     deep_learning.obj (.text)
+                  008088a0    00000460     main.obj (.text)
+                  00808d00    00000300     IMG_conv_7x7_i16s_c16s.obj (.text:optimized)
+                  00809000    00000260     IMG_conv_5x5_i16s_c16s.obj (.text:optimized)
+                  00809260    00000160     rts6600_elf.lib : copy_decompress_rle.obj (.text:__TI_decompress_rle_core)
+                  008093c0    00000140     boot.ae66 : autoinit.oe66 (.text:_auto_init_elf)
+                  00809500    000000e0     rts6600_elf.lib : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
+                  008095e0    000000e0     IMG_conv_3x3_i16s_c16s.obj (.text:optimized)
+                  008096c0    000000c0     rts6600_elf.lib : remi.obj (.text:__remi)
+                  00809780    000000c0                     : exit.obj (.text:exit)
+                  00809840    000000a0     boot.ae66 : boot.oe66 (.text:_c_int00)
+                  008098e0    000000a0     rts6600_elf.lib : memcpy64.obj (.text:memcpy)
+                  00809980    00000080     DSP_maxval.obj (.text:optimized)
+                  00809a00    00000080     rts6600_elf.lib : rand.obj (.text:rand)
+                  00809a80    00000040                     : args_main.obj (.text:_args_main)
+                  00809ac0    00000020                     : _lock.obj (.text:_nop)
+                  00809ae0    00000020                     : exit.obj (.text:abort)
+                  00809b00    00000020     ti.csl.ae66 : csl_tsc.oe66 (.text:cslsys_section:tsc)
+                  00809b20    00000020     rts6600_elf.lib : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
+                  00809b40    00000020                     : copy_decompress_rle.obj (.text:decompress:rle24:__TI_decompress_rle24)
+                  00809b60    00000020     ($Tramp$S$$xdc_runtime_Startup_reset__I)
+                  00809b80    00000020     ($Tramp$S$$xdc_runtime_Startup_exec__E)
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 0080f364 records: 6, size/record: 8, table size: 48
+	.local_ram.1: load addr=00809db0, load size=000053b4 bytes, run addr=00800000, run size=00005be2 bytes, compression=rle
+	.local_ram.2: load addr=0080f164, load size=000001b5 bytes, run addr=00805be8, run size=00000620 bytes, compression=rle
+	.fardata.2: load addr=0080f31c, load size=00000015 bytes, run addr=00808208, run size=00000014 bytes, compression=rle
+	.neardata: load addr=0080f334, load size=0000000d bytes, run addr=00809da4, run size=0000000c bytes, compression=rle
+	.fardata.1: load addr=0080f350, load size=0000000a bytes, run addr=00805be4, run size=00000004 bytes, compression=rle
+	.bss: load addr=0080f35c, load size=00000008 bytes, run addr=00809da0, run size=00000004 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 0080f344 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_rle24
+	index: 2, handler: __TI_decompress_none
+
+
+FAR CALL TRAMPOLINES
+
+callee name               trampoline name
+   callee addr  tramp addr   call addr  call info
+--------------  -----------  ---------  ----------------
+xdc_runtime_Startup_reset__I  $Tramp$S$$xdc_runtime_Startup_reset__I
+   00000000     00809b60     00809880   boot.ae66 : boot.oe66 (.text:_c_int00)
+xdc_runtime_Startup_exec__E  $Tramp$S$$xdc_runtime_Startup_exec__E
+   00000000     00809b80     00809498   boot.ae66 : autoinit.oe66 (.text:_auto_init_elf)
+
+[2 trampolines]
+[2 trampoline calls]
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                            
+-------   ----                            
+00809ae0  C$$EXIT                         
+00809b00  CSL_tscEnable                   
+00809b08  CSL_tscRead                     
+00809980  DSP_maxval                      
+008095e0  IMG_conv_3x3_i16s_c16s          
+00809000  IMG_conv_5x5_i16s_c16s          
+00808d00  IMG_conv_7x7_i16s_c16s          
+008053a8  ImageData1                      
+008059c8  L1Data2                         
+00805b50  L2Data2                         
+008087a4  MemMgr_InitCriticalMemory       
+00800000  __ASM__                         
+00800070  __ISA__                         
+00800088  __PLAT__                        
+008000b0  __TARG__                        
+0080f364  __TI_CINIT_Base                 
+0080f394  __TI_CINIT_Limit                
+0080f344  __TI_Handler_Table_Base         
+0080f350  __TI_Handler_Table_Limit        
+UNDEFED   __TI_INITARRAY_Base             
+UNDEFED   __TI_INITARRAY_Limit            
+00808208  __TI_STACK_END                  
+00002000  __TI_STACK_SIZE                 
+00809da0  __TI_STATIC_BASE                
+00808208  __TI_cleanup_ptr                
+00809b20  __TI_decompress_none            
+00809b40  __TI_decompress_rle24           
+0080820c  __TI_dtors_ptr                  
+00808210  __TI_enable_exit_profile_output 
+ffffffff  __TI_pprof_out_hndl             
+ffffffff  __TI_prof_data_size             
+ffffffff  __TI_prof_data_start            
+00809500  __TI_zero_init                  
+008000d8  __TRDR__                        
+ffffffff  __binit__                       
+008096c0  __c6xabi_remi                   
+00809ba0  __c_args__                      
+008096c0  __remi                          
+00809a80  _args_main                      
+00000200  _argsize                        
+008093c0  _auto_init_elf                  
+00809840  _c_int00                        
+00805be4  _lock                           
+00809ac0  _nop                            
+00806208  _stack                          
+00808214  _unlock                         
+00809ae0  abort                           
+ffffffff  binit                           
+00809da0  core_id                         
+008087c0  deeplearn                       
+00808ccc  delaycycles                     
+00805bb8  dilate                          
+008088a0  do_power_gating                 
+00809780  exit                            
+00809da4  gCriticalMemRefPtr              
+00809da8  gL1Data1                        
+00809dac  gL2Data1                        
+00805be8  in_img                          
+00805bd0  kernel                          
+00800388  kernel5x5                       
+008020d8  kernel7x7                       
+00803400  kernel9x9                       
+00800000  kernel_3x3                      
+00808c60  main                            
+008098e0  memcpy                          
+00808594  operateLayer1                   
+00808380  operateLayer2                   
+00809a00  rand                            
+00000000  xdc_runtime_Startup__EXECFXN__C 
+00000000  xdc_runtime_Startup__RESETFXN__C
+00000000  xdc_runtime_Startup_exec__E     
+00000000  xdc_runtime_Startup_reset__I    
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                            
+-------   ----                            
+00000000  xdc_runtime_Startup__EXECFXN__C 
+00000000  xdc_runtime_Startup__RESETFXN__C
+00000000  xdc_runtime_Startup_exec__E     
+00000000  xdc_runtime_Startup_reset__I    
+00000200  _argsize                        
+00002000  __TI_STACK_SIZE                 
+00800000  __ASM__                         
+00800000  kernel_3x3                      
+00800070  __ISA__                         
+00800088  __PLAT__                        
+008000b0  __TARG__                        
+008000d8  __TRDR__                        
+00800388  kernel5x5                       
+008020d8  kernel7x7                       
+00803400  kernel9x9                       
+008053a8  ImageData1                      
+008059c8  L1Data2                         
+00805b50  L2Data2                         
+00805bb8  dilate                          
+00805bd0  kernel                          
+00805be4  _lock                           
+00805be8  in_img                          
+00806208  _stack                          
+00808208  __TI_STACK_END                  
+00808208  __TI_cleanup_ptr                
+0080820c  __TI_dtors_ptr                  
+00808210  __TI_enable_exit_profile_output 
+00808214  _unlock                         
+00808380  operateLayer2                   
+00808594  operateLayer1                   
+008087a4  MemMgr_InitCriticalMemory       
+008087c0  deeplearn                       
+008088a0  do_power_gating                 
+00808c60  main                            
+00808ccc  delaycycles                     
+00808d00  IMG_conv_7x7_i16s_c16s          
+00809000  IMG_conv_5x5_i16s_c16s          
+008093c0  _auto_init_elf                  
+00809500  __TI_zero_init                  
+008095e0  IMG_conv_3x3_i16s_c16s          
+008096c0  __c6xabi_remi                   
+008096c0  __remi                          
+00809780  exit                            
+00809840  _c_int00                        
+008098e0  memcpy                          
+00809980  DSP_maxval                      
+00809a00  rand                            
+00809a80  _args_main                      
+00809ac0  _nop                            
+00809ae0  C$$EXIT                         
+00809ae0  abort                           
+00809b00  CSL_tscEnable                   
+00809b08  CSL_tscRead                     
+00809b20  __TI_decompress_none            
+00809b40  __TI_decompress_rle24           
+00809ba0  __c_args__                      
+00809da0  __TI_STATIC_BASE                
+00809da0  core_id                         
+00809da4  gCriticalMemRefPtr              
+00809da8  gL1Data1                        
+00809dac  gL2Data1                        
+0080f344  __TI_Handler_Table_Base         
+0080f350  __TI_Handler_Table_Limit        
+0080f364  __TI_CINIT_Base                 
+0080f394  __TI_CINIT_Limit                
+ffffffff  __TI_pprof_out_hndl             
+ffffffff  __TI_prof_data_size             
+ffffffff  __TI_prof_data_start            
+ffffffff  __binit__                       
+ffffffff  binit                           
+UNDEFED   __TI_INITARRAY_Base             
+UNDEFED   __TI_INITARRAY_Limit            
+
+[72 symbols]
